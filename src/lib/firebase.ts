@@ -3,17 +3,16 @@ import { getFirestore, doc, getDoc, setDoc, onSnapshot } from 'firebase/firestor
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCnrwh0d2CFWX3sQTs94lGDU1kYyxr3z5E",
-  authDomain: "googly-alloy-h53bd.firebaseapp.com",
-  projectId: "googly-alloy-h53bd",
-  storageBucket: "googly-alloy-h53bd.firebasestorage.app",
-  messagingSenderId: "9159173670",
-  appId: "1:9159173670:web:16b25d9b96df6c9d0568e7"
+  apiKey: "AIzaSyAsVu1clyf2GnMEuZSpW9Wzw0tOfGX3Ig",
+  authDomain: "amitfolio-126c4.firebaseapp.com",
+  projectId: "amitfolio-126c4",
+  storageBucket: "amitfolio-126c4.appspot.com",
+  messagingSenderId: "48226319659",
+  appId: "1:48226319659:web:1997f61b3eb5892655d96e"
 };
 
 const app = initializeApp(firebaseConfig);
-const databaseId = "ai-studio-amityadav-2a7e5214-3eda-4d63-849a-cf84e13a167e";
-export const db = getFirestore(app, databaseId);
+export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
@@ -55,7 +54,6 @@ export const getPortfolioData = async () => {
     if (docSnap.exists()) {
       return docSnap.data() as PortfolioData;
     }
-    // Return default if it doesn't exist yet, admin will create it on first save
     return defaultData;
   } catch (error) {
     console.error("Error fetching portfolio data:", error);
